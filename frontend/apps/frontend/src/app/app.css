@@ -1,0 +1,11 @@
+.mainCont {
+    display: table;
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.mainCont > div {
+    display: table-cell;
+    width: 25%;
+}
+
