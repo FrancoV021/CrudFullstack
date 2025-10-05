@@ -12,7 +12,7 @@ import java.util.List;
 // Clase CONTROLLER - es la encargada de procesar las peticiones del usuario y determinar la acción a seguir para realizar las operaciones CRUD.
 @RestController
 public class RegistroController {
-    @Autowired
+    @Autowired  // Inyección de dependencias modificado
     private RegistroService registroService;
 
     @GetMapping("/gym/registros")
