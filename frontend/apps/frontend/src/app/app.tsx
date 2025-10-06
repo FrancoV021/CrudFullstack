@@ -3,6 +3,7 @@ import Cont from '../Containers/Cont';
 
 import React from 'react';
 import {RegistroGym} from '../Entities/RegistroGym';
+import ReadCont from '../ContentBox/ReadCont';
 
 export function App() {
     const [registros, setRegistros] = React.useState<RegistroGym[]>([]); // esto significa que registros es un array de objetos de tipo RegistroGym
@@ -39,6 +40,11 @@ export function App() {
           {
            <div>
              <h2>Read:</h2>
+             {
+                registros.map(registro => <ReadCont
+                  key={`${registros.id}`}
+                  content={registro}/>)
+             }
           </div>
           }
         </Cont>
