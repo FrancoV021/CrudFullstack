@@ -26,6 +26,9 @@ public class RegistroDto {
         this.ejercicio = ejercicio;
     }
 
+    public RegistroDto () {
+    }
+
     public Long getId() {
         return id;
     }
