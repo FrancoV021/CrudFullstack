@@ -1,6 +1,5 @@
 import React from 'react';
 import './Cont.css';
-
 import {RegistroGym} from '../Entities/RegistroGym';
 
 interface ContentBoxProps {
