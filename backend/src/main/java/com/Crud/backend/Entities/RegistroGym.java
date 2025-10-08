@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+// la entidad es la representación de una tabla en la base de datos.
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

@@ -7,7 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import java.util.List;
-
+//esta interfaz se utiliza para definir las conversiones entre las entidades de la base de datos y los objetos DTO (Data Transfer Object) que se utilizan para transferir datos entre diferentes capas de la aplicación.
+// MapStruct es una biblioteca que facilita la implementación de estas conversiones mediante la generación automática de
 @Mapper(componentModel = "spring")
 public interface RegistroGymMap {
 
