@@ -39,5 +39,13 @@ public class RegistroService {
         registroGymRepo.deleteById(id);
         return registroDto;
     }
+
+    public RegistroDto updateRegistroGym(Long id, RegistroDto registroDto) {
+        RegistroGym registroGym = registroGymRepo.findById(id)
+                .orElseThrow(() -> new AppExcep("Registro no encontrado", HttpStatus.NOT_FOUND ));
+        registroGymMap.updateRegistroGym(registroGym, registroDto);
+        RegistroGym updatedRegistroGym = registroGymRepo.save(registroGym);
+        return registroGymMap.toRegistroDto(updatedRegistroGym);
+    }
 }
 

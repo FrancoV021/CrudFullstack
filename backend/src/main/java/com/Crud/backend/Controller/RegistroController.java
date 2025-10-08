@@ -34,4 +34,9 @@ public class RegistroController {
     public ResponseEntity<RegistroDto> deleteRegistroGym(@PathVariable Long id) {
         return ResponseEntity.ok(registroService.deleteRegistroGym(id));
     }
+
+    @PutMapping("/gym/registros/{id}")
+    public ResponseEntity<RegistroDto> updateRegistroGym(@PathVariable Long id, @RequestBody RegistroDto registroDto) {
+        return ResponseEntity.ok(registroService.updateRegistroGym(id, registroDto));
+    }
 }
