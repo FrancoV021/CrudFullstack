@@ -5,6 +5,7 @@ import React from 'react';
 import {RegistroGym} from '../Entities/RegistroGym';
 import ReadCont from '../ContentBox/ReadCont';
 import CreateCont from '../ContentBox/CreateCont';
+import DeleteCont from '../ContentBox/DeleteCont';
 
 export function App() {
     const [registros, setRegistros] = React.useState<RegistroGym[]>([]); // esto significa que registros es un array de objetos de tipo RegistroGym
@@ -47,6 +48,22 @@ export function App() {
     })
   };
 
+  const handleDeleteSubmit = (id: number) => {
+    fetch(`http://localhost:8080/gym/registros/${id}`, {
+      method: "DELETE"
+    }).then(response => {
+      if (response.status == 200) {
+        return response.json()
+      }
+      return null;
+    }).then (data => {
+      if (data !== null) {
+        setRegistros(registros.filter(registro => registro.id !== data.id));
+      }
+    });
+
+  };
+
   return (
     <div className="mainCont">
       <div>
@@ -67,7 +84,8 @@ export function App() {
              {
                 registros.map(registro => <ReadCont
                   key={registro.id}
-                  content={registro}/>)
+                  content={registro}
+                />)
              }
           </div>
           }
@@ -87,6 +105,11 @@ export function App() {
           {
             <div>
               <h2>Delete:</h2>
+              {
+                registros.map(registro => <DeleteCont key={`${registro.id}`}
+                  onSubmit={handleDeleteSubmit} content={registro}
+                />)
+              }
             </div>
           }
         </Cont>

@@ -4,10 +4,7 @@ import com.Crud.backend.Dtos.RegistroDto;
 import com.Crud.backend.Service.RegistroService;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
@@ -31,5 +28,10 @@ public class RegistroController {
         RegistroDto createdRegistroGym = registroService.createRegistroGym(registroDto);
         return ResponseEntity.created(URI.create("/gym/registros/" + createdRegistroGym.getId()))
                 .body(createdRegistroGym);
+    }
+
+    @DeleteMapping("/gym/registros/{id}")
+    public ResponseEntity<RegistroDto> deleteRegistroGym(@PathVariable Long id) {
+        return ResponseEntity.ok(registroService.deleteRegistroGym(id));
     }
 }

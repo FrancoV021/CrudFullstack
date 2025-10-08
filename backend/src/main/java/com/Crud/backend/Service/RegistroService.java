@@ -2,8 +2,10 @@ package com.Crud.backend.Service;
 
 import com.Crud.backend.Dtos.RegistroDto;
 import com.Crud.backend.Entities.RegistroGym;
+import com.Crud.backend.Exceptions.AppExcep;
 import com.Crud.backend.Mappers.RegistroGymMap;
 import com.Crud.backend.Repositories.RegistroGymRepo;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.util.List;
 // Clase SERVICE - es la clase que contiene la logica de negocio
@@ -29,4 +31,13 @@ public class RegistroService {
 
         return registroGymMap.toRegistroDto(createdRegistroGym);
     }
+
+    public  RegistroDto deleteRegistroGym (Long id) {
+        RegistroGym registroGym = registroGymRepo.findById(id)
+                .orElseThrow(() -> new AppExcep("Registro no encontrado", HttpStatus.NOT_FOUND ));
+        RegistroDto registroDto = registroGymMap.toRegistroDto(registroGym);
+        registroGymRepo.deleteById(id);
+        return registroDto;
+    }
 }
+
