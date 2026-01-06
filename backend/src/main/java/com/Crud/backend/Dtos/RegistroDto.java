@@ -1,6 +1,5 @@
 package com.Crud.backend.Dtos;
 
-// clase DTO - es una clase simple que se utiliza para transferir datos entre diferentes capas de una aplicación.
 public class RegistroDto {
     private Long id;
     private String nombre;
